@@ -1,0 +1,27 @@
+{
+    "name": "FullAjax",
+    "version": "0.0.1",
+    "description": "Rita Full Ajax Plugin",
+    "type": "Core/Lib",
+    "homepage": "https://github.com/RitaCo/cakephp-FullAjax.git",
+    "author": [
+			"Mohammad Saleh Souzanchi <saleh.souzanchi@gmail.com> (http://soozanchi.ir/)"
+    ],
+    "contributors": [],
+    "keywords": [],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RitaCo/cakephp-FullAjax.git"
+    },
+    "bugs": {
+        "url": "https://github.com/RitaCo/cakephp-FullAjax/issues"
+    },
+    "licenses" : "MIT",
+    "devDependencies": {
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "rita": "7.0.0"
+    }
+
+}
