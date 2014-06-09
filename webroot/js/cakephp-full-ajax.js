@@ -159,8 +159,8 @@ if (document.all && !window.setInterval.isPolyfill) {
     };
 
     $(function () {
-        $('body').on('click', 'a.ajax', Ajax.prototype.click);
-        $('body').on('submit', 'form.ajax', Ajax.prototype.submit);
+        $('body').on('click', '[data-ajax="1"]', Ajax.prototype.click);
+        $('body').on('submit', '[data-ajax="1"]', Ajax.prototype.submit);
         $('body').on('click', 'a[data-cancel-closest]', Ajax.prototype.cancel);
 
         $('[data-timeout]').each(Ajax.prototype.timeout);
