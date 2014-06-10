@@ -47,9 +47,12 @@ if (document.all && !window.setInterval.isPolyfill) {
 
     Ajax.prototype._ajax = function ($el, url, method, data) {
 		var $container = $el.closest('[cake-container]');
+		var $data = $el.data();
 		
-        $el.trigger('cake-ajax:begin', [$el]);
-		l($container);
+		if(jQuery.isEmptyObject($data)) {
+					$el.attr('data-inner', '#'+$container.attr('id'));
+		}
+    
         var newData = $el.triggerHandler('cake-ajax:modify-data', data);
         if (newData) {
             data = newData;
@@ -59,7 +62,7 @@ if (document.all && !window.setInterval.isPolyfill) {
             type: method,
             dataType: 'json',
             data: data,
-            headers: {'X-Eldarion-Ajax': true},
+            headers: {'X-Cake-Ajax': true ,'X-Cake-Contain' : $container.attr('cake-container')},
             statusCode: {
                 200: function (responseData) {
                     if (!responseData) {
@@ -159,8 +162,8 @@ if (document.all && !window.setInterval.isPolyfill) {
     };
 
     $(function () {
-        $('body').on('click', '[data-ajax="1"]', Ajax.prototype.click);
-        $('body').on('submit', '[data-ajax="1"]', Ajax.prototype.submit);
+        $('body').on('click', '.ajax', Ajax.prototype.click);
+        $('body').on('submit', '.ajax', Ajax.prototype.submit);
         $('body').on('click', 'a[data-cancel-closest]', Ajax.prototype.cancel);
 
         $('[data-timeout]').each(Ajax.prototype.timeout);

@@ -57,7 +57,8 @@
         $el.closest($el.data('replace-closest')).replaceWith(data.html);
     };
     Handlers.prototype.replaceInner = function(e, $el, data) {
-        $($el.data('replace-inner')).html(data.html);
+    	l(data);
+        $($el.data('inner')).html(data.html);
     };
     Handlers.prototype.replaceClosestInner = function(e, $el, data) {
         $el.closest($el.data('replace-closest-inner')).html(data.html);
@@ -123,7 +124,7 @@
         $(document).on('cake-ajax:success', Handlers.prototype.fragments);
         $(document).on('cake-ajax:success', '[data-replace]', Handlers.prototype.replace);
         $(document).on('cake-ajax:success', '[data-replace-closest]', Handlers.prototype.replaceClosest);
-        $(document).on('cake-ajax:success', '[data-replace-inner]', Handlers.prototype.replaceInner);
+        $(document).on('cake-ajax:success', '[data-inner]', Handlers.prototype.replaceInner);
         $(document).on('cake-ajax:success', '[data-replace-closest-inner]', Handlers.prototype.replaceClosestInner);
         $(document).on('cake-ajax:success', '[data-append]', Handlers.prototype.append);
         $(document).on('cake-ajax:success', '[data-prepend]', Handlers.prototype.prepend);
