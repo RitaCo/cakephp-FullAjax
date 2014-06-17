@@ -3,7 +3,7 @@ return[
 	'admin' =>  [
 		'script' => [	
 			'lt' => [
-				'FullAjax.cakephp-full-ajax',
+				'FullAjax.cakephp-pjax',
 				'FullAjax.cakephp-handlers'
 			],
 			'lb' => [
